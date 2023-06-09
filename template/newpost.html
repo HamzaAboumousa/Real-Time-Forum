@@ -1,0 +1,26 @@
+{{define "newpost"}}
+{{template "header" .}}
+<div class="viewpost">
+<form role="form" method="POST" action="/SavePost" class="form-stule">
+    <input type="hidden" name="id" value="{{.Post.ID}}" />
+
+    <div class="form-div">
+        <textarea type="text" placeholder="Content" class="form-input" name="content">{{.Post.Content}}</textarea>
+        <div class="error">{{.Error}}</div>
+    </div>
+    <div class="form-thread">
+        <label for="cars">Choose threads:</label> <br>          
+             <input type="checkbox" name="thread" value="sport">Sport</br>
+            <input type="checkbox" name="thread" value="nutrition">Nutrition</br>
+            <input type="checkbox" name="thread" value="health">Health</br>
+            <input type="checkbox" name="thread"value="performance">Performance</br>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="commentbtn">Submit</button>
+    </div>
+</form>
+</div>
+
+{{template "chat" .}}
+{{template "footer"}}
+{{end}}

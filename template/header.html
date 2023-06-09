@@ -1,0 +1,81 @@
+{{define "header"}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Blog</title>
+    <link rel="icon" type="image/png" href="/template/img/iconlogo.png"/>
+    <link rel="stylesheet" href="/template/index.css">
+</head>
+<body>
+    <nav class="navbar" id = "nav">
+        <div class="imgheight"><a href="/"><img src="/template/img/noback.svg" alt="Sport Blog" class="logo" height="50px"></a></div>
+          <ul class="navbarlist">
+          {{if .Sess.Username}}
+          <li class="filter1"> <span id="defile"class="itemslink">Blogs <span class="arrow "></span></span>
+             <ul id="filteritem" class="hiden">
+              <li class="items"><a class="itemslink" href="/filter?thread=sport"> Sport</a></li>
+              <li class="items"><a class="itemslink" href="/filter?thread=nutrition"> Nutrition</a></li>
+              <li class="items"><a class="itemslink" href="/filter?thread=health"> Health</a></li>
+              <li class="items"><a class="itemslink" href="/filter?thread=performance"> Performance</a></li>
+              <li class="items"><a class="itemslink" href="/filter?thread=general"> General</a></li>
+             </ul>
+          
+          </li>
+          {{end}}
+            {{if .Sess.Username}}
+            <li class="nav-item">
+              <a class="nav-link itemslink" href="/write" title="Add new Post">+ New Post</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link itemslink" href="/profile" >{{.Sess.Username}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link itemslink" href="/logout">Logout</a>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link itemslink" href="/register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link itemslink" href="/login">Login</a>
+              </li>
+            {{end}}
+        </ul>
+        <div class="nhumburger">
+          <div id="menu-button">Menu<span class="arrow "></span></div>
+          <ul id="burgerliste" class="hiden">
+            {{if .Sess.Username}}
+          <li class=""> <span id="burgerBlogs"class="burgeritems">Blogs<span class="arrow "></span></span>
+            <ul id="burgerlist2" class="hiden">
+             <li class=""><a class="burgeritems souslist " href="/filter?thread=sport"> Sport</a></li>
+             <li class=""><a class="burgeritems souslist" href="/filter?thread=nutrition"> Nutrition</a></li>
+             <li class=""><a class="burgeritems souslist" href="/filter?thread=health"> Health</a></li>
+             <li class=""><a class="burgeritems souslist" href="/filter?thread=performance"> Performance</a></li>
+            </ul>
+         
+         </li>
+           <li class="">
+             <a class="burgeritems movedown" href="/write" title="Add new Post">+ New Post</a>
+           </li>
+             <li class="">
+               <a class="burgeritems movedown" href="/profile" >{{.Sess.Username}}</a>
+             </li>
+             <li class="">
+               <a class="burgeritems movedown" href="/logout">Logout</a>
+             </li>
+           {{else}}
+             <li class="">
+               <a class="burgeritems movedown" href="/register">Register</a>
+             </li>
+             <li class="">
+               <a class="burgeritems movedown" href="/login">Login</a>
+             </li>
+           {{end}}
+        </ul>
+        </div>
+      </nav>
+    
+{{end}}

@@ -1,0 +1,79 @@
+{{define "view"}}
+
+{{template "header" .}}
+<div class="viewpost">
+    <div class="allpost">
+        
+        <div class="author-info">
+            <img src="" alt="" class="profile">
+            <p>{{.Post.Author}}</p>
+            <p>{{.Post.Creat_at}}</p>
+          </div>
+        <div class="allcontent">
+            <div class="content">
+              <pre class="post-text">{{.Post.Content}}</pre>
+        <div>
+          
+        <a  class="commentbtn" href="/comment?id={{.Post.ID}}">Comment</a>
+          {{if .IsAuthor}}
+        <a class="commentbtn" role="button" href="/delete?{{.Post.ID}}">Delete</a>
+      
+        <a class="commentbtn" role="button" href="/edit?{{.Post.ID}}">Edit</a>
+          {{end}}
+      </div>
+             
+            </div>
+      
+            <div class="like-thread">
+            {{if .Sess.IsAuthorized}}
+              <a class="btnlike" href="/like?id={{.Post.ID}}&r=no">
+                {{.Post.L}}
+              </a>
+              <a class="btndislike" href="/dislike?id={{.Post.ID}}&r=no">
+                {{.Post.D}}
+              </a>
+            {{else}}
+                <i class="btnlike">{{.Post.L}}<span></span></i>
+                <i class="btndislike">{{.Post.D}}</i>
+            {{end}}
+             
+              <p>#{{.Post.Thread}}</p>
+            </div>
+        </div>
+        </div>
+    <h2 style="color: white;">All comment</h2>
+    {{range .Comments}}
+    <div class="allpost">
+        <div class="author-info">
+            <img src="" alt="" class="profile">
+            <p>{{.Author}}</p>
+            <p>{{.Creat_at}}</p>
+          </div>
+        <div class="allcontent">
+            <div class="content">
+              <pre class="post-text">{{.Content}}</pre>
+             
+            </div>
+      
+            <div class="like-thread">
+              <a class="btnlike"  href="/likecom?coid={{.CommentId}}&posid={{.PostId}}">
+                {{.L}}
+              </a>
+              <a class="btndislike"  href="/dislikecom?coid={{.CommentId}}&posid={{.PostId}}">
+                {{.D}}
+              </a>
+              {{if .ComIsAuthor}}
+              <a class="commentbtn" role="button" href="/deleteCom?coid={{.CommentId}}&posid={{.PostId}}">Deletecom</a>
+      
+              {{end}}
+            </div>
+        </div>
+        </div>
+
+    {{end}}
+</div>
+
+{{template "chat" .}}
+{{template "footer"}}
+
+{{end}}

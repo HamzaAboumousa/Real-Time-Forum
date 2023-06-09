@@ -1,0 +1,14 @@
+{{define "comment"}}
+{{template "view" .}}
+<form role="form" method="POST" action="/savecomm" class="form-stule">
+    <input type="hidden" name="id" value="{{.Post.ID}}" />
+
+    <textarea id="content" class="form-input" name="content" placeholder="Type your comment" >{{.Content}}</textarea>
+    <div class="error">{{.Error}}</div>
+
+    <button type="submit" class="commentbtn">Push</button>
+
+</form>
+
+
+{{end}}

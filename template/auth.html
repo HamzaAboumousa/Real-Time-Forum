@@ -1,0 +1,49 @@
+{{define "register"}}
+
+{{template "header"}}
+<div class="logindiv">
+    <form role="form" class="login-form" method="POST" action="/register">
+        <div class="form-group accroche">Sign up to see photos and videos from your friends.</div>
+        <div class="form-group">
+            <input type="email" class="form-control" id="email" name="email" value="{{.PHemail}}" placeholder="Email" required/>
+            <pre>{{.Email}}</pre>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="username" name="username" value="{{.PHusername}}" placeholder="Username" required/>
+            <pre>{{.Username}}</pre>
+        </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="fname" name="fname" value="{{.PHfname}}" placeholder="First Name" required/>
+                <pre>{{.Fname}}</pre>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="lname" name="lname" value="{{.PHlname}}" placeholder="Last Name" required/>
+                <pre>{{.Lname}}</pre>
+            </div>
+            <div class="form-group">
+                <input type="number" id="age" name="age" class="form-control" value="{{.PHage}}" placeholder="Age" required>
+                <pre>{{.Age}}</pre>
+            </div>
+            <div class="form-group sex-group">
+                <span class="sex">Sex : </span>
+                
+                    <input type="radio" name="radio" class="radio male" id="male" checked/>
+                    <label  for="male">Male </label>
+                
+                    <input type="radio" name="radio" class="radio female"id="female" />
+                    <label  for="female">Female</label>
+            </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password"  placeholder="Password"required/>
+            <pre>{{.Password}}</pre>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Password confirmation" required/>
+        </div>
+        <button type="submit" id="send" class="btn">Register</button>
+
+    </form>
+</div>
+{{template "footer"}}
+<script src="/template/register.js"></script>
+{{end}}

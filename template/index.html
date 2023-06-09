@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Blog</title>
+    <link rel="icon" type="image/png" href="/template/img/iconlogo.png"/>
+    <link rel="stylesheet" href="/template/index.css">
+</head>
+<body>
+    <nav class="navbar" id = "nav">
+        <div class="imgheight"><a href="/"><img src="/template/img/noback.svg" alt="Sport Blog" class="logo" height="50px"></a></div>
+        <ul class="navbarlist">
+            <li class="nav-item">
+                <a class="nav-link itemslink" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link itemslink" href="/login">Login</a>
+            </li>
+        </ul>
+        <div class="nhumburger">
+            <div id="menu-button">Menu<span class="arrow "></span></div>
+            <ul id="burgerliste" class="hiden">
+            <li class="">
+                <a class="burgeritems movedown" href="/register">Register</a>
+                </li>
+                <li class="">
+                <a class="burgeritems movedown" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="logindiv">
+        <form role="form" class="login-form" method="POST">
+           <div class="form-group accroche">Login</div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+</body>
+<script src="/template/ws.js"></script>
+<script src="/template/index.js"></script>
+</html>
